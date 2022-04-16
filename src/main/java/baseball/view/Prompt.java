@@ -46,9 +46,6 @@ public class Prompt {
     public Boolean confirm(String prompt_str) {
         System.out.print(prompt_str);
         String r = Console.readLine();
-        if ("2".equals(r)) {
-            return false;
-        }
-        return true;
+        return !"2".equals(r);
     }
 }

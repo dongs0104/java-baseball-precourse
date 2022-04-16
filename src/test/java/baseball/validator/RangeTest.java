@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class RangeTest {
 
-    Validator range = new Range();
+    final Validator range = new Range();
 
 
     @ParameterizedTest

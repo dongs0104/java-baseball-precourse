@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class UniqueTest {
 
-    Validator unique = new Unique();
+    final Validator unique = new Unique();
 
 
     @ParameterizedTest

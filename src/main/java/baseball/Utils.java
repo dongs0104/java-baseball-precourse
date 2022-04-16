@@ -13,7 +13,7 @@ public class Utils {
     public static int contains(Integer[] inputs, Integer target) {
         int count = 0;
         for (Integer i : inputs) {
-            if (target == i) {
+            if (target.equals(i)) {
                 count++;
             }
         }

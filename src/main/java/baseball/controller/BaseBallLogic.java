@@ -41,7 +41,7 @@ public class BaseBallLogic {
     }
 
     private Integer getExistsBallCount(Integer[] inputs) {
-        Integer count = 0;
+        int count = 0;
 
         for (int i = 0; i < 3; i++) {
             count += Utils.contains(inputs, answer[i]);
@@ -53,7 +53,7 @@ public class BaseBallLogic {
     private Integer getStrike(Integer[] inputs) {
         Integer count = 0;
         for (int i = 0; i < 3; i++) {
-            if (answer[i] == inputs[i]) {
+            if (answer[i].equals(inputs[i])) {
                 count++;
             }
         }
