@@ -1,12 +1,17 @@
 package baseball.model;
 
+import baseball.controller.BaseBallLogic;
 
 public class BaseBallGame {
 
+    private BaseBallLogic logic;
+
     public BaseBallGame() {
+        logic = BaseBallLogic.getInstance();
     }
 
     public void run() {
+        Integer[] answer = logic.generateAnswer();
         while (true) {
             /*
                 1. 유효 난수 생성
