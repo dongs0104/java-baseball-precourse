@@ -14,7 +14,7 @@ public class Range implements Validator {
     @Override
     public boolean isValid(String input) throws IllegalArgumentException {
         if (3 != input.split("").length || input.contains("0")) {
-            throw new IllegalArgumentException(message + "범위를 벗어난 숫자입니다.");
+            throw new IllegalArgumentException(message + " 범위를 벗어난 입력입니다.");
         }
         if (nextValidator != null) {
             return nextValidator.isValid(input);
@@ -25,7 +25,7 @@ public class Range implements Validator {
     @Override
     public boolean isValid(Integer[] input) throws IllegalArgumentException {
         if (3 != input.length || Arrays.asList(input).contains(0)) {
-            throw new IllegalArgumentException(message + "범위를 벗어난 숫자입니다.");
+            throw new IllegalArgumentException(message + "범위를 벗어난 입력입니다.");
         }
         if (nextValidator != null) {
             return nextValidator.isValid(input);
