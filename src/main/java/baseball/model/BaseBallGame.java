@@ -21,29 +21,19 @@ public class BaseBallGame {
     }
 
     public void run() {
-        while (true) {
-            if (play(logic.generateAnswer())) {
-                break;
-            }
+        while (play()) {
         }
     }
 
-    private boolean play(Integer[] answer) {
-        while (true) {
+    private boolean play() {
+        logic.generateAnswer();
+        Integer[] compareResults;
+        do {
             String input = prompt.prompt(Constants.INPUT_MESSAGE.getValue());
-            try {
-                if (validator.isValid(input)) {
-                    break;
-                }
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-                throw e;
-            }
-        /*
-            4. 난수와 입력 값 비교
-            5. 힌트/종료 멘트 출력
-        */
-        }
-        return false;
+            validator.isValid(input);
+            compareResults = logic.compare(input);
+            System.out.println(prompt.hintGenerator(compareResults));
+        } while (3 != compareResults[1]);
+        return prompt.confirm(Constants.ENDING_MESSAGE.getValue());
     }
 }

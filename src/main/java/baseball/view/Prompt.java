@@ -24,9 +24,31 @@ public class Prompt {
         return Console.readLine();
     }
 
-    public String hintGenerator(Integer[] answers) {
-        // 힌트 문장을 만드는 함수
+    public String hintGenerator(Integer[] results) {
         StringBuilder ret = new StringBuilder();
+        if (results[0] > 0) {
+            ret.append(results[0]);
+            ret.append("볼 ");
+        }
+        if (results[1] > 0) {
+            ret.append(results[1]);
+            ret.append("스트라이크");
+        }
+        if (results[1] == 3) {
+            ret.append("\n3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        }
+        if (ret.length() == 0) {
+            ret.append("낫싱");
+        }
         return ret.toString();
+    }
+
+    public Boolean confirm(String prompt_str) {
+        System.out.print(prompt_str);
+        String r = Console.readLine();
+        if ("2".equals(r)) {
+            return false;
+        }
+        return true;
     }
 }
