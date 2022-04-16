@@ -52,10 +52,15 @@ public class BaseBallLogic {
 
     private Integer getStrike(Integer[] inputs) {
         Integer count = 0;
-        for (int i = 0; i < 3; i++) {
-            if (answer[i].equals(inputs[i])) {
-                count++;
-            }
+
+        if (answer[0].equals(inputs[0])) {
+            count++;
+        }
+        if (answer[1].equals(inputs[1])) {
+            count++;
+        }
+        if (answer[2].equals(inputs[2])) {
+            count++;
         }
         return count;
     }

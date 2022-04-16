@@ -1,6 +1,6 @@
 package baseball.validator;
 
-import java.util.Arrays;
+import baseball.Utils;
 
 public class Range implements Validator {
 
@@ -23,12 +23,12 @@ public class Range implements Validator {
     }
 
     @Override
-    public boolean isValid(Integer[] input) throws IllegalArgumentException {
-        if (3 != input.length || Arrays.asList(input).contains(0)) {
+    public boolean isValid(Integer[] inputs) throws IllegalArgumentException {
+        if (3 != inputs.length || Utils.contains(inputs, 0) == 1) {
             throw new IllegalArgumentException(message + "범위를 벗어난 입력입니다.");
         }
         if (nextValidator != null) {
-            return nextValidator.isValid(input);
+            return nextValidator.isValid(inputs);
         }
         return true;
     }

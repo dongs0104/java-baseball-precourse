@@ -1,5 +1,7 @@
 package baseball;
 
+import java.util.Arrays;
+
 public class Utils {
 
     public static Integer[] stringToIntegers(String str) {
@@ -11,13 +13,10 @@ public class Utils {
     }
 
     public static int contains(Integer[] inputs, Integer target) {
-        int count = 0;
-        for (Integer i : inputs) {
-            if (target.equals(i)) {
-                count++;
-            }
+        if (Arrays.asList(inputs).contains(target)) {
+            return 1;
         }
-        return count;
+        return 0;
     }
 
     private Utils() {
